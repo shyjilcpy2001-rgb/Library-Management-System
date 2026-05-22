@@ -12,3 +12,20 @@ Thumbs.db
 .vscode/
 *.suo
 *.user
+
+# JAR and manifest
+LibraryManagementSystem.jar
+manifest.txt
+
+# CSV data files (runtime data, not source)
+books.csv
+borrowed.csv
+reservations.csv
+
+# Logs and temp files
+*.log
+*.tmp
+
+# Misc
+*.swp
+*.swo
