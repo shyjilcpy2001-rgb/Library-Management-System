@@ -1,4 +1,4 @@
-	name: Java CI/CD Pipeline
+name: Java CI/CD Pipeline
  
 on:
 
@@ -21,12 +21,12 @@ jobs:
     runs-on: ubuntu-latest
  
     steps:
+        run: |
+          javac -d bin src/model/*.java src/service/*.java src/utility/*.java src/*.java
 
-      - name: Checkout Repository
-
-        uses: actions/checkout@v4
- 
-      - name: Set Up Java
+        run: |
+          echo "Main-Class: Main" > manifest.txt
+          echo "" >> manifest.txt
 
         uses: actions/setup-java@v4
 
