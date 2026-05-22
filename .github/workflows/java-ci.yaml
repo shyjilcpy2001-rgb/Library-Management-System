@@ -44,13 +44,13 @@ jobs:
 
         run: |
 
-          javac -d bin src/model/*.java src/service/*.java src/utility/*.java src/*.java
+          javac -d bin src/model/*.java src/service/*.java src/utility/*.java
  
       - name: Create Manifest File
 
         run: |
 
-          echo "Main-Class: Main" > manifest.txt
+          echo "Main-Class: utility.Main" > manifest.txt
 
           echo "" >> manifest.txt
  
