@@ -19,54 +19,35 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
- 
     steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set Up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: "temurin"
+          java-version: "17"
+
+      - name: Create bin Directory
+        run: mkdir -p bin
+
+      - name: Compile Java Project
         run: |
           javac -d bin src/model/*.java src/service/*.java src/utility/*.java src/*.java
 
+      - name: Create Manifest File
         run: |
           echo "Main-Class: Main" > manifest.txt
           echo "" >> manifest.txt
 
-        uses: actions/setup-java@v4
-
-        with:
-
-          distribution: "temurin"
-
-          java-version: "17"
- 
-      - name: Create bin Directory
-
-        run: mkdir -p bin
- 
-      - name: Compile Java Project
-
-        run: |
-
-          javac -d bin src/model/*.java src/service/*.java src/utility/*.java
- 
-      - name: Create Manifest File
-
-        run: |
-
-          echo "Main-Class: utility.Main" > manifest.txt
-
-          echo "" >> manifest.txt
- 
       - name: Create Executable JAR
-
         run: |
-
           jar cfm LibraryManagementSystem.jar manifest.txt -C bin .
- 
+
       - name: Upload JAR Artifact
-
         uses: actions/upload-artifact@v4
-
         with:
-
           name: LibraryManagementSystem
-
           path: LibraryManagementSystem.jar
- 
+
