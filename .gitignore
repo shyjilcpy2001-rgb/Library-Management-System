@@ -1,0 +1,14 @@
+# Compiled Java class files — never commit these
+bin/
+*.class
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# IDE project files
+.idea/
+*.iml
+.vscode/
+*.suo
+*.user
